@@ -39,6 +39,7 @@
 
     <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="#about">About</a>
+      <a href="#faculty">Faculty</a>
       <a href="courses.html">Courses</a>
       <a href="#classes">Classes</a>
       <a href="#certification">Certification</a>
@@ -51,12 +52,105 @@
 
 <main id="main">
 
+<!-- ============================= SHOWCASE SLIDESHOW ============================= -->
+<section class="showcase" id="showcase"
+         aria-roledescription="carousel"
+         aria-label="Moments from Shree Guru Sangeet Vidyalaya">
+
+  <div class="showcase__stage" id="showcase-stage">
+    <figure class="showcase__slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 8">
+      <img src="images/presentation/IMG-20260123-WA0047(2).jpg" fetchpriority="high" decoding="async"
+           alt="Students and teachers performing together on stage with tabla, tanpura and harmonium">
+      <figcaption>
+        <span class="showcase__eyebrow">On Stage</span>
+        <strong>Students and gurus in concert at a cultural programme</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="2 of 8">
+      <img src="images/presentation/IMG-20260912-WA0049.jpg" loading="lazy" decoding="async"
+           alt="An ensemble performing at the Bharat Ratna Pt. Bhimsen Joshi Birth Centenary Concerts">
+      <figcaption>
+        <span class="showcase__eyebrow">Concert Stages</span>
+        <strong>Bharat Ratna Pt. Bhimsen Joshi Birth Centenary Concerts</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="3 of 8">
+      <img src="images/presentation/IMG-20260911-WA0029.jpg" loading="lazy" decoding="async"
+           alt="A full class of students seated for a theory and practice session at the Vidyalaya">
+      <figcaption>
+        <span class="showcase__eyebrow">Daily Classes</span>
+        <strong>Systematic teaching, theory and practice, every week</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="4 of 8">
+      <img src="images/presentation/IMG-20260623-WA0046(2).jpg" loading="lazy" decoding="async"
+           alt="An outdoor cultural programme with vocal, tabla and keyboard accompaniment">
+      <figcaption>
+        <span class="showcase__eyebrow">Cultural Programmes</span>
+        <strong>Invited to perform across Karnataka</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="5 of 8">
+      <img src="images/presentation/IMG-20260911-WA0069(1).jpg" loading="lazy" decoding="async"
+           alt="Students seated on the floor during a keyboard and vocal lesson">
+      <figcaption>
+        <span class="showcase__eyebrow">Learning Together</span>
+        <strong>Small groups, personal attention, guided riyaz</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="6 of 8">
+      <img src="images/presentation/IMG-20260123-WA0045.jpg" loading="lazy" decoding="async"
+           alt="A group of students and teachers with a harmonium beneath the Vidyalaya banner">
+      <figcaption>
+        <span class="showcase__eyebrow">Guru-Shishya Tradition</span>
+        <strong>Knowledge passed on the way it always has been</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="7 of 8">
+      <img src="images/presentation/IMG-20260916-WA0082.jpg" loading="lazy" decoding="async"
+           alt="Founder A. M. Arun Kumar with dignitaries receiving mementos at an award ceremony">
+      <figcaption>
+        <span class="showcase__eyebrow">Honours &amp; Recognition</span>
+        <strong>Awarded for service to music and culture</strong>
+      </figcaption>
+    </figure>
+
+    <figure class="showcase__slide" role="group" aria-roledescription="slide" aria-label="8 of 8">
+      <img src="images/presentation/IMG-20260916-WA0081.jpg" loading="lazy" decoding="async"
+           alt="A felicitation on stage, a bouquet being presented to the founder">
+      <figcaption>
+        <span class="showcase__eyebrow">Felicitations</span>
+        <strong>A decade of service, honoured on many stages</strong>
+      </figcaption>
+    </figure>
+  </div>
+
+  <button class="showcase__arrow showcase__arrow--prev" type="button" aria-label="Previous photograph">
+    <span aria-hidden="true">&#8249;</span>
+  </button>
+  <button class="showcase__arrow showcase__arrow--next" type="button" aria-label="Next photograph">
+    <span aria-hidden="true">&#8250;</span>
+  </button>
+
+  <div class="showcase__dots" id="showcase-dots" role="tablist" aria-label="Choose a photograph"></div>
+
+  <a class="showcase__scroll" href="#hero" aria-label="Scroll to introduction">
+    <span aria-hidden="true">&#8595;</span>
+  </a>
+</section>
+
 <!-- ============================= HERO ============================= -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero__bg" role="presentation"></div>
   <div class="wrap">
     <div class="hero__content">
-      <span class="hero__kicker">Ranebennur, Karnataka</span>
+      <span class="hero__kicker hero__kicker--lg">Ranebennur, Karnataka</span>
       <h1>
         Shree Guru Sangeet Vidyalaya
         <span class="accent">Indian Classical Music &amp; Bharatanatyam</span>
@@ -124,6 +218,86 @@
   </div>
 </section>
 
+<!-- ============================= FOUNDER ============================= -->
+<section class="section section--paper" id="founder">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Our Founder</span>
+      <h2>The story behind the Vidyalaya</h2>
+      <div class="ornament"><span></span></div>
+      <p>
+        Shree Guru Sangeet Vidyalaya is dedicated to nurturing young musical talent and
+        preserving the rich heritage of Indian music.
+      </p>
+    </div>
+
+    <div class="split split--media-right reveal">
+      <div class="split__media split__media--poster">
+        <img src="images/faculties/8d4d9214-cf70-455b-9ecb-2fcd43ee7e40.jfif"
+             alt="A. M. Arun Kumar, founder of Shree Guru Sangeet Vidyalaya — M.A. in Music, Sangeet Vidvat, vocalist and music director"
+             loading="lazy" decoding="async">
+      </div>
+      <div>
+        <span class="eyebrow">A. M. Arun Kumar</span>
+        <h3 class="founder__name">Founder &amp; Music Educator</h3>
+        <div class="ornament ornament--start"><span></span></div>
+        <p>
+          The institution was founded in <strong>2013</strong> by <strong>A. M. Arun Kumar</strong>,
+          a Music graduate with a Master of Music, as a small initiative to share the knowledge and
+          values of music with aspiring learners. Guided by the blessings and valuable advice of his
+          revered Guru, <strong>Sri Ayyappaiah Halagali Math Guruji</strong>, it was formally
+          registered in Dharwad.
+        </p>
+        <p>
+          After successfully serving students in Dharwad for five years, the Vidyalaya expanded its
+          vision to reach learners across Karnataka. Its Head Office was established in
+          <strong>Ranebennur, Haveri District</strong>, where it has continued its musical journey
+          for more than a decade.
+        </p>
+        <p>
+          Today the Vidyalaya has trained hundreds of students through systematic music education,
+          stage performances, cultural programmes, and preparation for State and National-level
+          music examinations. For the past two years, Ranebennur has also been home to a
+          <strong>National-level Music Examination Centre</strong>, giving students the opportunity
+          to pursue recognised music certifications.
+        </p>
+
+        <ul class="founder__facts">
+          <li><span>2013</span> Founded in Dharwad</li>
+          <li><span>10+</span> Years in Ranebennur</li>
+          <li><span>100s</span> Students trained</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="founder__press reveal">
+      <figure>
+        <img src="images/presentation/IMG-20260123-WA0048.jpg"
+             alt="Newspaper report on music teacher Arun Kumar receiving the Kalashri award in Dharwad"
+             loading="lazy" decoding="async">
+        <figcaption>Honoured with the Kalashri award for service to music</figcaption>
+      </figure>
+      <figure>
+        <img src="images/presentation/IMG-20260624-WA0047(1).jpg"
+             alt="Shri Guru Sangeeta Vidyalaya Ranebennur information poster listing vocal, instrumental and dance subjects"
+             loading="lazy" decoding="async">
+        <figcaption>Vocal, instrumental and dance — a full curriculum under one roof</figcaption>
+      </figure>
+    </div>
+
+    <div class="vision reveal">
+      <span class="eyebrow">Our Vision</span>
+      <p class="vision__text">
+        To make quality music education accessible to every aspiring learner while preserving
+        tradition, encouraging talent, building confidence, and inspiring the next generation
+        of musicians.
+      </p>
+      <p class="vision__motto">Learn &bull; Practise &bull; Perform &bull; Excel</p>
+      <p class="vision__sign">Shree Guru Sangeet Vidyalaya &mdash; Where Tradition Meets Talent.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============================= APPROACH ============================= -->
 <section class="section section--cream">
   <div class="wrap">
@@ -178,6 +352,73 @@
         <h3>Flexible Formats</h3>
         <p>Classes conducted online and offline, accessible from any location.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FACULTY ============================= -->
+<section class="section section--paper" id="faculty">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Our Faculty</span>
+      <h2>The gurus who guide every student</h2>
+      <div class="ornament"><span></span></div>
+      <p>
+        Trained performers and experienced teachers, each leading their own discipline —
+        vocal, tabla, harmonium and Bharatanatyam.
+      </p>
+    </div>
+
+    <div class="faculty reveal">
+      <figure class="faculty__card">
+        <img src="images/faculties/eb6ca882-5531-4ea3-b589-5b7d2bed1ddc.jfif"
+             alt="Miss Pallavi Arunkumar, Manager and Vocal Trainer at Shree Guru Sangeet Vidyalaya"
+             loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Miss Pallavi Arunkumar</strong>
+          <span>Manager &amp; Vocal Trainer</span>
+          <em>Vocal, harmonium, theory &amp; practical, examination guidance</em>
+        </figcaption>
+      </figure>
+
+      <figure class="faculty__card">
+        <img src="images/faculties/54100cb3-cf2c-445f-9593-1bde56c60ce4.jfif"
+             alt="Kavya Hiremath, Tabla Trainer and Supervisor at Shree Guru Sangeet Vidyalaya"
+             loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Kavya Hiremath</strong>
+          <span>Tabla Trainer &amp; Supervisor</span>
+          <em>Tabla, riyaz, layakari and taal for all age groups</em>
+        </figcaption>
+      </figure>
+
+      <figure class="faculty__card">
+        <img src="images/faculties/74738328-9625-49e8-a37f-d565726a110d.jfif"
+             alt="Manikantha Mantagi, Music Teacher, ghazal singer, composer and coordinator"
+             loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Manikantha Mantagi</strong>
+          <span>Music Teacher &amp; Coordinator</span>
+          <em>Ghazal gayaki, harmonium and music composition</em>
+        </figcaption>
+      </figure>
+
+      <figure class="faculty__card">
+        <img src="images/faculties/6f084836-ee92-4ecc-a997-117fc5990632.jfif"
+             alt="Miss Pooja Dange, Bharatanatyam Trainer from Natavara Dance Academy"
+             loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Miss Pooja Dange</strong>
+          <span>Bharatanatyam Trainer</span>
+          <em>Adavus, abhinaya, rhythm &amp; taal, stage preparation</em>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="section-head section-head--center reveal" style="margin-top:44px;margin-bottom:0">
+      <div class="btn-row">
+        <a class="btn btn--outline" href="#enquiry">Learn With Our Gurus</a>
+      </div>
     </div>
   </div>
 </section>

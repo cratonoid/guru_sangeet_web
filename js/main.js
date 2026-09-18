@@ -76,6 +76,104 @@
   }
 
   /* ---------------------------------------------------------------
+     Showcase slideshow
+
+     Crossfades the photographs above the hero. Autoplay pauses on
+     hover, on keyboard focus and while the tab is hidden, and is
+     skipped entirely for visitors who prefer reduced motion.
+     --------------------------------------------------------------- */
+  var showcase = document.querySelector(".showcase");
+
+  if (showcase) {
+    var slides = showcase.querySelectorAll(".showcase__slide");
+    var dotWrap = showcase.querySelector(".showcase__dots");
+    var stage = showcase.querySelector(".showcase__stage");
+    var INTERVAL = 5500;
+    var current = 0;
+    var timer = null;
+    var paused = false;
+    var calm = window.matchMedia
+      ? window.matchMedia("(prefers-reduced-motion: reduce)")
+      : { matches: false };
+
+    if (slides.length > 1) {
+      var dots = [];
+
+      // Dots are built here so the markup stays a plain list of figures.
+      slides.forEach(function (slide, i) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "showcase__dot" + (i === 0 ? " is-active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-label", "Photograph " + (i + 1));
+        dot.setAttribute("aria-selected", String(i === 0));
+        dot.addEventListener("click", function () { show(i); restart(); });
+        dotWrap.appendChild(dot);
+        dots.push(dot);
+      });
+
+      function show(next) {
+        current = (next + slides.length) % slides.length;
+        slides.forEach(function (slide, i) {
+          slide.classList.toggle("is-active", i === current);
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle("is-active", i === current);
+          dot.setAttribute("aria-selected", String(i === current));
+        });
+      }
+
+      function advance(step) { show(current + step); }
+
+      function restart() {
+        window.clearInterval(timer);
+        timer = null;
+        if (calm.matches || paused) return;
+        timer = window.setInterval(function () { advance(1); }, INTERVAL);
+      }
+
+      showcase.querySelector(".showcase__arrow--prev")
+        .addEventListener("click", function () { advance(-1); restart(); });
+      showcase.querySelector(".showcase__arrow--next")
+        .addEventListener("click", function () { advance(1); restart(); });
+
+      // Pause while the visitor is looking at or interacting with it
+      ["mouseenter", "focusin"].forEach(function (evt) {
+        showcase.addEventListener(evt, function () { paused = true; restart(); });
+      });
+      ["mouseleave", "focusout"].forEach(function (evt) {
+        showcase.addEventListener(evt, function () { paused = false; restart(); });
+      });
+
+      document.addEventListener("visibilitychange", function () {
+        paused = document.hidden;
+        restart();
+      });
+
+      // Arrow keys once the carousel has keyboard focus
+      showcase.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { advance(-1); restart(); }
+        else if (e.key === "ArrowRight") { advance(1); restart(); }
+      });
+
+      // Swipe on touch devices
+      var touchX = null;
+      stage.addEventListener("touchstart", function (e) {
+        touchX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      stage.addEventListener("touchend", function (e) {
+        if (touchX === null) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 45) { advance(dx < 0 ? 1 : -1); restart(); }
+        touchX = null;
+      }, { passive: true });
+
+      if (calm.addEventListener) calm.addEventListener("change", restart);
+      restart();
+    }
+  }
+
+  /* ---------------------------------------------------------------
      Highlight the section currently in view (home page nav)
      --------------------------------------------------------------- */
   var sectionLinks = Array.prototype.filter.call(
