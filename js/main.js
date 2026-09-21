@@ -13,7 +13,7 @@
      Until this is filled in, the form tells the visitor to contact
      the institute directly instead of silently losing the lead.
      --------------------------------------------------------------- */
-  var LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbzcLu6Vcf5j24Qhd3CBtoXr3gdjhBVFbYmEAWFPX65-4QLVlIJZIBoY4qexVUx-GsaX/exec";
+  var LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbyQT1DUVcD1Je20mZNfLPlZqIjIzUPeP_ef3JrH8jLSWTqYsGvfxX01WOl7bDIunhcxVg/exec";
 
   /* ---------------------------------------------------------------
      Mobile navigation

@@ -5,7 +5,7 @@
  */
 
 var SHEET  = 'Leads';
-var NOTIFY = 'shrigurusangeetavidyalaya@gmail.com';   // '' to switch off email alerts
+var NOTIFY = 'ainallimath@gmail.com';   // '' to switch off email alerts
 
 var HEADERS = ['Date & Time', 'Student Name', 'Email', 'Mobile Number', 'Course',
                'Course Type', 'Language Learnt', 'Previous Experience', 'Submitted From'];
@@ -52,7 +52,9 @@ function reply(result, message) {
 
 function notify(row) {
   var body = HEADERS.map(function (h, i) { return h + ': ' + row[i]; }).join('\n');
-  MailApp.sendEmail(NOTIFY, 'New course enquiry — ' + row[1], body);
+  var options = { name: 'Shree Guru Sangeet Vidyalaya — Website' };
+  if (row[2]) options.replyTo = row[2];              // reply goes straight to the student
+  MailApp.sendEmail(NOTIFY, 'New course enquiry — ' + row[1], body, options);
 }
 
 
