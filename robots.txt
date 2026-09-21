@@ -1,0 +1,10 @@
+# robots.txt for https://shreegurusangeet.in
+# Allow every crawler to index the whole site.
+
+User-agent: *
+Allow: /
+
+# Nothing here is meant to be indexed on its own.
+Disallow: /apps-script/
+
+Sitemap: https://shreegurusangeet.in/sitemap.xml

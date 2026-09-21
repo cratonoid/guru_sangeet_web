@@ -242,6 +242,97 @@
       });
     });
 
+    /* -- Enquiry popup ------------------------------------------- */
+
+    // Every "Enquire" CTA opens the form in a modal instead of
+    // scrolling to the bottom of the page. The one form card is
+    // moved into the modal while it is open and put back on close,
+    // so IDs, validation and the submit handler stay unchanged.
+    // Without JS the links simply jump to #enquiry as before.
+    var formCard = form.closest(".form-card");
+    var formHome = formCard && formCard.parentNode;
+    var ctaLinks = document.querySelectorAll("a[href='#enquiry']");
+
+    if (formCard && ctaLinks.length) {
+      var modal = document.createElement("div");
+      modal.className = "modal";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      modal.setAttribute("aria-labelledby", "modal-title");
+      modal.hidden = true;
+      modal.innerHTML =
+        '<div class="modal__panel">' +
+          '<div class="modal__head">' +
+            '<div>' +
+              '<span class="eyebrow">Admissions</span>' +
+              '<h2 id="modal-title">Enquire Now</h2>' +
+              '<p>Share your details and we will contact you about batches, timings, fees and admission.</p>' +
+            '</div>' +
+            '<button type="button" class="modal__close" aria-label="Close">&times;</button>' +
+          '</div>' +
+          '<div class="modal__body"></div>' +
+        '</div>';
+      document.body.appendChild(modal);
+
+      var modalBody = modal.querySelector(".modal__body");
+      var closeBtn = modal.querySelector(".modal__close");
+      var lastFocus = null;
+
+      function openModal(trigger) {
+        if (!modal.hidden) return;
+        lastFocus = trigger || document.activeElement;
+        modalBody.appendChild(formCard);
+        formCard.classList.add("is-visible");       // skip the scroll-reveal fade
+        modal.hidden = false;
+        document.body.classList.add("modal-open");
+        // Next frame so the opacity transition runs
+        window.requestAnimationFrame(function () {
+          modal.classList.add("is-open");
+          var first = form.querySelector("input:not([type='hidden']):not([tabindex='-1'])");
+          if (first) first.focus();
+        });
+      }
+
+      function closeModal() {
+        if (modal.hidden) return;
+        modal.classList.remove("is-open");
+        document.body.classList.remove("modal-open");
+        window.setTimeout(function () {
+          modal.hidden = true;
+          formHome.appendChild(formCard);
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }, 260);
+      }
+
+      ctaLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          openModal(link);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) closeModal();   // click on the backdrop
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.hidden) closeModal();
+      });
+
+      // Keep Tab inside the dialog while it is open
+      modal.addEventListener("keydown", function (e) {
+        if (e.key !== "Tab") return;
+        var focusable = modal.querySelectorAll(
+          "button, [href], input:not([type='hidden']):not([tabindex='-1']), select, textarea"
+        );
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+    }
+
     /* -- Submission ---------------------------------------------- */
 
     function setBusy(busy) {

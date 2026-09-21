@@ -1079,6 +1079,98 @@ table.compare tbody tr:nth-child(even) { background: var(--cream); }
 .contact-card p a,
 .contact-card address a { display: inline-block; padding-block: 4px; }
 
+/* ---------- Enquiry modal ----------
+   Opened by any "Enquire" CTA (a[href="#enquiry"]). The on-page form
+   card is moved into .modal__body while open, so there is only ever
+   one form on the page. See js/main.js. */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(60, 7, 16, 0.62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease;
+}
+.modal__panel {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--cream);
+  border: 1px solid rgba(200, 149, 46, 0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.3s ease;
+}
+.modal.is-open .modal__panel { transform: none; }
+
+.modal__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 14px;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(200, 149, 46, 0.3);
+}
+.modal__head h2 { font-size: 1.35rem; margin: 4px 0 2px; }
+.modal__head p { color: var(--ink-soft); font-size: 0.94rem; margin: 0; }
+
+.modal__close {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(110, 16, 35, 0.25);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--maroon-700);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.modal__close:hover { background: var(--maroon-700); color: var(--on-dark); }
+
+.modal__body { padding: 20px 24px 26px; }
+.modal__body .form-card { box-shadow: none; border: 0; padding: 0; background: transparent; }
+
+body.modal-open { overflow: hidden; }
+
+@media (max-width: 620px) {
+  .modal { padding: 0; align-items: flex-end; }
+  .modal__panel {
+    width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: 0;
+  }
+  .modal__head { padding: 18px 18px 12px; }
+  .modal__body { padding: 16px 18px 24px; }
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
